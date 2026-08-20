@@ -1,0 +1,1 @@
+Place your profile image as images/aakash.jpg and open index.html
