@@ -147,7 +147,7 @@ nav a{
 text-decoration:none;
 color:white;
 font-weight:500;
-transition:.3s;
+transition:.35s;
 position:relative;
 }
 
@@ -336,7 +336,7 @@ transform:translateY(-50%) translateX(18px);
 }
 
 /* ===================================
-HERO IMAGE (ROUND GLOWING AVATAR - FULL VISIBILITY)
+HERO IMAGE (ROUND GLOWING AVATAR)
 =================================== */
 
 .hero-right{
@@ -357,7 +357,6 @@ align-items:center;
 border-radius:50%;
 }
 
-/* Ambient pulsing glow */
 .avatar-glow{
 position:absolute;
 inset:-25px;
@@ -380,7 +379,6 @@ opacity:1;
 }
 }
 
-/* Rotating gradient border ring */
 .avatar-border-ring{
 position:absolute;
 inset:0;
@@ -399,7 +397,6 @@ transform:rotate(360deg);
 }
 }
 
-/* Inner frame holding the image */
 .avatar-inner{
 position:relative;
 width:calc(100% - 12px);
@@ -667,6 +664,7 @@ stroke-dasharray:10 10;
 fill:none;
 }
 
+/* Video Card Structure */
 .landscape-grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
@@ -704,8 +702,11 @@ border:none;
 pointer-events:none;
 }
 
-.land-card:hover iframe{
-pointer-events:auto;
+.click-overlay{
+position:absolute;
+inset:0;
+z-index:4;
+cursor:pointer;
 }
 
 .land-overlay{
@@ -716,6 +717,7 @@ bottom:0;
 padding:22px;
 background:linear-gradient(transparent,rgba(0,0,0,.88));
 z-index:2;
+pointer-events:none;
 }
 
 .land-overlay h4{
@@ -728,29 +730,6 @@ font-size:.85rem;
 color:#ffb84d;
 letter-spacing:2px;
 text-transform:uppercase;
-}
-
-.play-badge{
-position:absolute;
-top:18px;
-right:18px;
-width:54px;
-height:54px;
-border-radius:50%;
-background:rgba(0,0,0,.55);
-backdrop-filter:blur(12px);
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:1.1rem;
-z-index:3;
-transition:.35s;
-}
-
-.land-card:hover .play-badge{
-background:#ffb84d;
-color:black;
-transform:scale(1.12);
 }
 
 /* ===================================
@@ -791,6 +770,7 @@ inset:0;
 width:100%;
 height:100%;
 border:none;
+pointer-events:none;
 }
 
 /* ===================================
@@ -859,6 +839,7 @@ box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 30px rgba(255,184,77,.12);
 border:1px solid rgba(255,255,255,.12);
 transition:.45s;
 overflow:hidden;
+cursor:pointer;
 }
 
 .phone:nth-child(2){
@@ -906,10 +887,6 @@ pointer-events:none;
 background:#0a0a0a;
 }
 
-.phone:hover iframe{
-pointer-events:auto;
-}
-
 .phone-label{
 position:absolute;
 bottom:18px;
@@ -923,6 +900,7 @@ text-transform:uppercase;
 background:linear-gradient(transparent,rgba(0,0,0,.85));
 padding-top:30px;
 z-index:5;
+pointer-events:none;
 }
 
 .floating-arrow{
@@ -1049,10 +1027,6 @@ pointer-events:none;
 background:#0a0a0a;
 }
 
-.reel-phone:hover iframe{
-pointer-events:auto;
-}
-
 .reel-number{
 position:absolute;
 bottom:16px;
@@ -1065,6 +1039,7 @@ font-size:.8rem;
 background:linear-gradient(transparent,rgba(0,0,0,.9));
 padding-top:28px;
 z-index:5;
+pointer-events:none;
 }
 
 .reel-svg{
@@ -1111,6 +1086,7 @@ inset:0;
 width:100%;
 height:100%;
 border:none;
+pointer-events:none;
 }
 
 .photo-overlay{
@@ -1120,6 +1096,7 @@ right:0;
 bottom:0;
 padding:28px;
 background:linear-gradient(transparent,rgba(0,0,0,.88));
+pointer-events:none;
 }
 
 .photo-overlay h3{
@@ -1465,12 +1442,11 @@ I craft high-impact visual content for brands, businesses and digital platforms 
 </div>
 
 <div class="hero-right">
-<!-- Circular Glowing Avatar Container -->
 <div class="round-avatar-container">
 <div class="avatar-glow"></div>
 <div class="avatar-border-ring"></div>
 <div class="avatar-inner">
-<img src="aakash.png" alt="Aakash Visualz">
+<img src="aakash.jpg" alt="Aakash Visualz">
 </div>
 </div>
 </div>
@@ -1540,13 +1516,13 @@ BIG CLIENT WORK
 <div class="category-sub">PROFESSIONAL • PREMIUM • BRAND CAMPAIGNS</div>
 <div class="big-client-dual-grid">
 <div class="big-client-item video-card" data-video="https://drive.google.com/file/d/1i4S1msjQnJ9dqmTCjJiKbfqJD08Omk4I/preview">
+<div class="click-overlay"></div>
 <iframe src="https://drive.google.com/file/d/1i4S1msjQnJ9dqmTCjJiKbfqJD08Omk4I/preview" allow="autoplay; encrypted-media; fullscreen"></iframe>
-<div class="play-badge">▶</div>
 </div>
 
-<div class="big-client-item video-card" data-video="https://www.youtube-nocookie.com/embed/pm4NyReFLTw?autoplay=1&mute=1">
-<iframe src="https://www.youtube-nocookie.com/embed/pm4NyReFLTw?autoplay=1&mute=1&loop=1&playlist=pm4NyReFLTw&controls=1" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
-<div class="play-badge">▶</div>
+<div class="big-client-item video-card" data-video="https://www.youtube.com/embed/pm4NyReFLTw">
+<div class="click-overlay"></div>
+<iframe src="https://www.youtube-nocookie.com/embed/pm4NyReFLTw?autoplay=1&mute=1&loop=1&playlist=pm4NyReFLTw&controls=0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
 </div>
 </div>
 </div>
@@ -1565,20 +1541,20 @@ PROMO VIDEOS
 </div>
 <div class="landscape-grid">
 <div class="land-card video-card" data-video="https://drive.google.com/file/d/1i4S1msjQnJ9dqmTCjJiKbfqJD08Omk4I/preview">
+<div class="click-overlay"></div>
 <iframe src="https://drive.google.com/file/d/1i4S1msjQnJ9dqmTCjJiKbfqJD08Omk4I/preview" allow="autoplay; encrypted-media; fullscreen"></iframe>
-<div class="play-badge">▶</div>
 <div class="land-overlay"><h4>Promo Video 1</h4><span>Commercial Edit</span></div>
 </div>
 
 <div class="land-card video-card" data-video="https://drive.google.com/file/d/1tTbufBZQIKQuFJSboyLGeqDaqgiZENIT/preview">
+<div class="click-overlay"></div>
 <iframe src="https://drive.google.com/file/d/1tTbufBZQIKQuFJSboyLGeqDaqgiZENIT/preview" allow="autoplay; encrypted-media; fullscreen"></iframe>
-<div class="play-badge">▶</div>
 <div class="land-overlay"><h4>Promo Video 2</h4><span>Brand Campaign</span></div>
 </div>
 
 <div class="land-card video-card" data-video="https://drive.google.com/file/d/16Ca5-PMjgqSq9Mdtz8syzkbPvCulrpII/preview">
+<div class="click-overlay"></div>
 <iframe src="https://drive.google.com/file/d/16Ca5-PMjgqSq9Mdtz8syzkbPvCulrpII/preview" allow="autoplay; encrypted-media; fullscreen"></iframe>
-<div class="play-badge">▶</div>
 <div class="land-overlay"><h4>Promo Video 3</h4><span>Creative Campaign</span></div>
 </div>
 </div>
@@ -1604,16 +1580,19 @@ MOTION GRAPHICS
 </div>
 <div class="phone-showcase">
 <div class="phone video-card" data-video="https://drive.google.com/file/d/1l7GAsjHPPbcH_uFsyKkfNPsfjTAhQXlb/preview">
+<div class="click-overlay"></div>
 <iframe src="https://drive.google.com/file/d/1l7GAsjHPPbcH_uFsyKkfNPsfjTAhQXlb/preview" allow="autoplay; encrypted-media; fullscreen"></iframe>
 <div class="phone-label">Motion 01</div>
 </div>
 
 <div class="phone video-card" data-video="https://drive.google.com/file/d/1yQ38qT3dJq925b229-qwkXiIKZPMNWwF/preview">
+<div class="click-overlay"></div>
 <iframe src="https://drive.google.com/file/d/1yQ38qT3dJq925b229-qwkXiIKZPMNWwF/preview" allow="autoplay; encrypted-media; fullscreen"></iframe>
 <div class="phone-label">Motion 02</div>
 </div>
 
 <div class="phone video-card" data-video="https://drive.google.com/file/d/1feGepLB4jI6-hskHGWcO_chV885ZIafU/preview">
+<div class="click-overlay"></div>
 <iframe src="https://drive.google.com/file/d/1feGepLB4jI6-hskHGWcO_chV885ZIafU/preview" allow="autoplay; encrypted-media; fullscreen"></iframe>
 <div class="phone-label">Motion 03</div>
 </div>
@@ -1633,20 +1612,20 @@ AI VIDEOS
 </div>
 <div class="landscape-grid">
 <div class="land-card video-card" data-video="https://drive.google.com/file/d/1HV0A8MGmhfvvDPawpyz0AJP1xJvRW0In/preview">
+<div class="click-overlay"></div>
 <iframe src="https://drive.google.com/file/d/1HV0A8MGmhfvvDPawpyz0AJP1xJvRW0In/preview" allow="autoplay; encrypted-media; fullscreen"></iframe>
-<div class="play-badge">▶</div>
 <div class="land-overlay"><h4>AI Video 1</h4><span>Cinematic AI</span></div>
 </div>
 
 <div class="land-card video-card" data-video="https://drive.google.com/file/d/1qcHq2G_pgkfurysaj9q-dIkG8YbScTbq/preview">
+<div class="click-overlay"></div>
 <iframe src="https://drive.google.com/file/d/1qcHq2G_pgkfurysaj9q-dIkG8YbScTbq/preview" allow="autoplay; encrypted-media; fullscreen"></iframe>
-<div class="play-badge">▶</div>
 <div class="land-overlay"><h4>AI Video 2</h4><span>AI Creator</span></div>
 </div>
 
 <div class="land-card video-card" data-video="https://drive.google.com/file/d/1eyLHl5U-lhm9gW4jT12D0pdwCUXhBGZk/preview">
+<div class="click-overlay"></div>
 <iframe src="https://drive.google.com/file/d/1eyLHl5U-lhm9gW4jT12D0pdwCUXhBGZk/preview" allow="autoplay; encrypted-media; fullscreen"></iframe>
-<div class="play-badge">▶</div>
 <div class="land-overlay"><h4>AI Video 3</h4><span>Luxury Edit</span></div>
 </div>
 </div>
@@ -1664,46 +1643,55 @@ REEL VIDEO EDITING
 </svg>
 
 <div class="reel-phone video-card" data-video="https://drive.google.com/file/d/1icWQeQ5vhF1cXQXMUN7h60q-0JolXboB/preview">
+<div class="click-overlay"></div>
 <iframe src="https://drive.google.com/file/d/1icWQeQ5vhF1cXQXMUN7h60q-0JolXboB/preview" allow="autoplay; encrypted-media; fullscreen"></iframe>
 <div class="reel-number">REEL 01</div>
 </div>
 
 <div class="reel-phone video-card" data-video="https://drive.google.com/file/d/1QjrtXwiz0BgExvjFg0cg0FWhEmS0L6ZN/preview">
+<div class="click-overlay"></div>
 <iframe src="https://drive.google.com/file/d/1QjrtXwiz0BgExvjFg0cg0FWhEmS0L6ZN/preview" allow="autoplay; encrypted-media; fullscreen"></iframe>
 <div class="reel-number">REEL 02</div>
 </div>
 
 <div class="reel-phone video-card" data-video="https://drive.google.com/file/d/1zfWaT7E4H9YVsjcBbCZjv-LHzRGcNQot/preview">
+<div class="click-overlay"></div>
 <iframe src="https://drive.google.com/file/d/1zfWaT7E4H9YVsjcBbCZjv-LHzRGcNQot/preview" allow="autoplay; encrypted-media; fullscreen"></iframe>
 <div class="reel-number">REEL 03</div>
 </div>
 
 <div class="reel-phone video-card" data-video="https://drive.google.com/file/d/1EZPtgqotcwBXpaHDyRghXjvYA6AU1EZk/preview">
+<div class="click-overlay"></div>
 <iframe src="https://drive.google.com/file/d/1EZPtgqotcwBXpaHDyRghXjvYA6AU1EZk/preview" allow="autoplay; encrypted-media; fullscreen"></iframe>
 <div class="reel-number">REEL 04</div>
 </div>
 
 <div class="reel-phone video-card" data-video="https://drive.google.com/file/d/1S7L3HXYlTTLTiLFLA_ZpnQVEh5A9f2iv/preview">
+<div class="click-overlay"></div>
 <iframe src="https://drive.google.com/file/d/1S7L3HXYlTTLTiLFLA_ZpnQVEh5A9f2iv/preview" allow="autoplay; encrypted-media; fullscreen"></iframe>
 <div class="reel-number">REEL 05</div>
 </div>
 
 <div class="reel-phone video-card" data-video="https://drive.google.com/file/d/1J_mrt_wlZmvaKRn0ykYMnPeWGXkSqPL0/preview">
+<div class="click-overlay"></div>
 <iframe src="https://drive.google.com/file/d/1J_mrt_wlZmvaKRn0ykYMnPeWGXkSqPL0/preview" allow="autoplay; encrypted-media; fullscreen"></iframe>
 <div class="reel-number">REEL 06</div>
 </div>
 
 <div class="reel-phone video-card" data-video="https://drive.google.com/file/d/1L9jXJISATPqq16sLlIhWmag9dSgLgSZI/preview">
+<div class="click-overlay"></div>
 <iframe src="https://drive.google.com/file/d/1L9jXJISATPqq16sLlIhWmag9dSgLgSZI/preview" allow="autoplay; encrypted-media; fullscreen"></iframe>
 <div class="reel-number">REEL 07</div>
 </div>
 
 <div class="reel-phone video-card" data-video="https://drive.google.com/file/d/1Vss9zDVckXl3VF98x90NEoUkxbfSRo78/preview">
+<div class="click-overlay"></div>
 <iframe src="https://drive.google.com/file/d/1Vss9zDVckXl3VF98x90NEoUkxbfSRo78/preview" allow="autoplay; encrypted-media; fullscreen"></iframe>
 <div class="reel-number">REEL 08</div>
 </div>
 
 <div class="reel-phone video-card" data-video="https://drive.google.com/file/d/1xsAsuVsTDtKnzmJLLNLeH8LgqkRW-LCJ/preview">
+<div class="click-overlay"></div>
 <iframe src="https://drive.google.com/file/d/1xsAsuVsTDtKnzmJLLNLeH8LgqkRW-LCJ/preview" allow="autoplay; encrypted-media; fullscreen"></iframe>
 <div class="reel-number">REEL 09</div>
 </div>
@@ -1718,20 +1706,20 @@ REEL VIDEO EDITING
 <div class="category-sub">CREATIVE 2D ANIMATION & CHARACTER MOTION</div>
 <div class="landscape-grid">
 <div class="land-card video-card" data-video="https://drive.google.com/file/d/15L_nV6cBNn__ZboOQgcmn0UyWXYhCvxC/preview">
+<div class="click-overlay"></div>
 <iframe src="https://drive.google.com/file/d/15L_nV6cBNn__ZboOQgcmn0UyWXYhCvxC/preview" allow="autoplay; encrypted-media; fullscreen"></iframe>
-<div class="play-badge">▶</div>
 <div class="land-overlay"><h4>2D Animation 1</h4><span>Motion Design</span></div>
 </div>
 
 <div class="land-card video-card" data-video="https://drive.google.com/file/d/1x3nr-eTMltenMRLmXroI57e3AZg4bIay/preview">
+<div class="click-overlay"></div>
 <iframe src="https://drive.google.com/file/d/1x3nr-eTMltenMRLmXroI57e3AZg4bIay/preview" allow="autoplay; encrypted-media; fullscreen"></iframe>
-<div class="play-badge">▶</div>
 <div class="land-overlay"><h4>2D Animation 2</h4><span>Visual Storytelling</span></div>
 </div>
 
 <div class="land-card video-card" data-video="https://drive.google.com/file/d/1aU_J5-r6Dhp0qEgyUwwT1eZd4R0y-L6i/preview">
+<div class="click-overlay"></div>
 <iframe src="https://drive.google.com/file/d/1aU_J5-r6Dhp0qEgyUwwT1eZd4R0y-L6i/preview" allow="autoplay; encrypted-media; fullscreen"></iframe>
-<div class="play-badge">▶</div>
 <div class="land-overlay"><h4>2D Animation 3</h4><span>Creative Animation</span></div>
 </div>
 </div>
@@ -1745,16 +1733,19 @@ POSTERS
 <div class="category-sub">CREATIVE POSTER DESIGNS • BRAND VISUALS</div>
 <div class="posters-grid">
 <div class="poster-card video-card" data-video="https://drive.google.com/file/d/1Cd8r-Ug9r0UWyZoVDbw1HwaTQxVXVGOM/preview">
+<div class="click-overlay"></div>
 <iframe src="https://drive.google.com/file/d/1Cd8r-Ug9r0UWyZoVDbw1HwaTQxVXVGOM/preview"></iframe>
 <div class="land-overlay"><h4>Poster 1</h4><span>Graphic Artwork</span></div>
 </div>
 
 <div class="poster-card video-card" data-video="https://drive.google.com/file/d/1PNkkWmpg0mQ3m5XlSNHbXnI4Fjsw31Y4/preview">
+<div class="click-overlay"></div>
 <iframe src="https://drive.google.com/file/d/1PNkkWmpg0mQ3m5XlSNHbXnI4Fjsw31Y4/preview"></iframe>
 <div class="land-overlay"><h4>Poster 2</h4><span>Brand Design</span></div>
 </div>
 
 <div class="poster-card video-card" data-video="https://drive.google.com/file/d/1NvT0vPMHqKQky5_lc22DptVJzk3vjjDJ/preview">
+<div class="click-overlay"></div>
 <iframe src="https://drive.google.com/file/d/1NvT0vPMHqKQky5_lc22DptVJzk3vjjDJ/preview"></iframe>
 <div class="land-overlay"><h4>Poster 3</h4><span>Creative Visual</span></div>
 </div>
@@ -1768,6 +1759,7 @@ PHOTO SLIDESHOW
 <h2 class="category-title">PHOTO SLIDESHOW EDIT</h2>
 <div class="category-sub">CINEMATIC PHOTO STORY PRESENTATION</div>
 <div class="photo-card video-card" data-video="https://drive.google.com/file/d/1NiLwmQKDB8H9EQPHy3C-o8gRVmW5rAjC/preview">
+<div class="click-overlay"></div>
 <iframe src="https://drive.google.com/file/d/1NiLwmQKDB8H9EQPHy3C-o8gRVmW5rAjC/preview" allow="autoplay; encrypted-media; fullscreen"></iframe>
 <div class="photo-overlay">
 <h3>Premium Photo Slideshow</h3>
@@ -1780,7 +1772,7 @@ PHOTO SLIDESHOW
 </section>
 
 <!-- ===========================
-FULLSCREEN VIDEO MODAL
+FULLSCREEN VIDEO MODAL (PLAYS WITH SOUND)
 =========================== -->
 <div class="video-modal" id="videoModal">
 <button class="close-modal" id="closeModal">✕</button>
@@ -1833,7 +1825,7 @@ Follow my latest edits, AI cinematic videos, motion graphics and creative projec
 <div class="to-top" id="topBtn">↑</div>
 
 <script>
-/* Fullscreen Modal */
+/* Fullscreen Modal - Click Card to Play with Sound */
 const modal=document.getElementById("videoModal");
 const frame=document.getElementById("modalFrame");
 const closeBtn=document.getElementById("closeModal");
@@ -1843,7 +1835,13 @@ document.querySelectorAll(".video-card").forEach(card=>{
 card.addEventListener("click",()=>{
 scrollPos=window.scrollY;
 const url=card.dataset.video;
+
+if(url.includes("youtube.com")){
+frame.src=url+"?autoplay=1";
+}else{
 frame.src=url;
+}
+
 modal.classList.add("active");
 document.body.style.overflow="hidden";
 });
