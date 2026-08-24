@@ -336,7 +336,7 @@ transform:translateY(-50%) translateX(18px);
 }
 
 /* ===================================
-HERO IMAGE (CUTOUT OUTLINE STYLE)
+HERO IMAGE (ROUND GLOWING AVATAR)
 =================================== */
 
 .hero-right{
@@ -347,34 +347,81 @@ position:relative;
 z-index:3;
 }
 
-.image-wrapper{
+.round-avatar-container{
 position:relative;
+width:380px;
+height:380px;
 display:flex;
 justify-content:center;
 align-items:center;
+border-radius:50%;
 }
 
-.image-glow{
+/* Big ambient pulsing glow */
+.avatar-glow{
 position:absolute;
-inset:-20px;
+inset:-25px;
 border-radius:50%;
-background:radial-gradient(circle,rgba(255,184,77,0.4),transparent 70%);
-filter:blur(50px);
-opacity:.7;
+background:radial-gradient(circle, rgba(255,184,77,0.5) 0%, rgba(83,51,255,0.3) 60%, transparent 75%);
+filter:blur(40px);
+opacity:0.85;
+animation:glowPulse 4s ease-in-out infinite alternate;
 z-index:1;
 }
 
-.image-wrapper img{
-width:100%;
-max-width:480px;
-height:auto;
-position:relative;
-display:block;
+@keyframes glowPulse{
+0%{
+transform:scale(0.95);
+opacity:0.65;
+}
+100%{
+transform:scale(1.08);
+opacity:1;
+}
+}
+
+/* Rotating gradient border ring */
+.avatar-border-ring{
+position:absolute;
+inset:0;
+border-radius:50%;
+background:conic-gradient(from 0deg, #ffb84d, #ff6b00, #5333ff, #ffffff, #ffb84d);
+animation:rotateRing 7s linear infinite;
+box-shadow:
+0 0 35px rgba(255,184,77,0.7),
+0 0 60px rgba(83,51,255,0.4);
 z-index:2;
-background:transparent;
-border:none;
-box-shadow:none;
-filter:drop-shadow(0 0 12px rgba(255,255,255,0.9)) drop-shadow(0 0 30px rgba(255,184,77,0.6));
+}
+
+@keyframes rotateRing{
+100%{
+transform:rotate(360deg);
+}
+}
+
+/* Inner frame holding the image */
+.avatar-inner{
+position:relative;
+width:calc(100% - 10px);
+height:calc(100% - 10px);
+border-radius:50%;
+overflow:hidden;
+background:#080808;
+z-index:3;
+box-shadow:inset 0 0 20px rgba(0,0,0,0.8);
+}
+
+.avatar-inner img{
+width:100%;
+height:100%;
+object-fit:cover;
+object-position:center top;
+display:block;
+transition:transform 0.5s ease;
+}
+
+.round-avatar-container:hover .avatar-inner img{
+transform:scale(1.06);
 }
 
 /* ===================================
@@ -1315,6 +1362,10 @@ gap:50px;
 .hero-left h1{
 font-size:4.2rem;
 }
+.round-avatar-container{
+width:300px;
+height:300px;
+}
 .about-grid, .big-client-dual-grid, .posters-grid, .landscape-grid{
 grid-template-columns:1fr;
 }
@@ -1410,9 +1461,13 @@ promotional campaigns and professional reel edits with a luxury storytelling app
 </div>
 
 <div class="hero-right">
-<div class="image-wrapper">
-<div class="image-glow"></div>
-<img src="aakash.png" alt="Aakash Visualz">
+<!-- Circular Glowing Avatar Container -->
+<div class="round-avatar-container">
+<div class="avatar-glow"></div>
+<div class="avatar-border-ring"></div>
+<div class="avatar-inner">
+<img src="aakash.jpg" alt="Aakash Visualz">
+</div>
 </div>
 </div>
 
