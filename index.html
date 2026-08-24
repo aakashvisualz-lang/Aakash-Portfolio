@@ -177,7 +177,7 @@ HERO
 .hero{
 min-height:100vh;
 display:grid;
-grid-template-columns:1.1fr 0.9fr;
+grid-template-columns:1.05fr 0.95fr;
 align-items:center;
 padding:110px 7%;
 position:relative;
@@ -336,7 +336,7 @@ transform:translateY(-50%) translateX(18px);
 }
 
 /* ===================================
-HERO IMAGE (ROUND GLOWING AVATAR)
+HERO IMAGE (ROUND GLOWING AVATAR - FULL VISIBILITY)
 =================================== */
 
 .hero-right{
@@ -349,20 +349,20 @@ z-index:3;
 
 .round-avatar-container{
 position:relative;
-width:380px;
-height:380px;
+width:440px;
+height:440px;
 display:flex;
 justify-content:center;
 align-items:center;
 border-radius:50%;
 }
 
-/* Big ambient pulsing glow */
+/* Ambient pulsing glow */
 .avatar-glow{
 position:absolute;
 inset:-25px;
 border-radius:50%;
-background:radial-gradient(circle, rgba(255,184,77,0.5) 0%, rgba(83,51,255,0.3) 60%, transparent 75%);
+background:radial-gradient(circle, rgba(255,184,77,0.55) 0%, rgba(83,51,255,0.35) 60%, transparent 75%);
 filter:blur(40px);
 opacity:0.85;
 animation:glowPulse 4s ease-in-out infinite alternate;
@@ -402,26 +402,31 @@ transform:rotate(360deg);
 /* Inner frame holding the image */
 .avatar-inner{
 position:relative;
-width:calc(100% - 10px);
-height:calc(100% - 10px);
+width:calc(100% - 12px);
+height:calc(100% - 12px);
 border-radius:50%;
 overflow:hidden;
 background:#080808;
 z-index:3;
-box-shadow:inset 0 0 20px rgba(0,0,0,0.8);
+display:flex;
+justify-content:center;
+align-items:center;
+padding:10px;
+box-shadow:inset 0 0 25px rgba(0,0,0,0.85);
 }
 
 .avatar-inner img{
 width:100%;
 height:100%;
-object-fit:cover;
-object-position:center top;
+object-fit:contain;
+object-position:center center;
 display:block;
+transform:scale(1.12);
 transition:transform 0.5s ease;
 }
 
 .round-avatar-container:hover .avatar-inner img{
-transform:scale(1.06);
+transform:scale(1.18);
 }
 
 /* ===================================
@@ -1363,8 +1368,8 @@ gap:50px;
 font-size:4.2rem;
 }
 .round-avatar-container{
-width:300px;
-height:300px;
+width:320px;
+height:320px;
 }
 .about-grid, .big-client-dual-grid, .posters-grid, .landscape-grid{
 grid-template-columns:1fr;
@@ -1465,7 +1470,7 @@ I craft high-impact visual content for brands, businesses and digital platforms 
 <div class="avatar-glow"></div>
 <div class="avatar-border-ring"></div>
 <div class="avatar-inner">
-<img src="aakash.png" alt="Aakash Visualz">
+<img src="aakash.jpg" alt="Aakash Visualz">
 </div>
 </div>
 </div>
@@ -1485,7 +1490,7 @@ I’m a visual creative specializing in video editing, motion design and AI-powe
 </div>
 <div class="glass-card">
 <h3>Core Expertise</h3>
-<div class="Core Expertise">
+<div class="skills">
 <div class="skill">Video Editing</div>
 <div class="skill">Motion Design</div>
 <div class="skill">AI Video Production</div>
@@ -1646,7 +1651,6 @@ AI VIDEOS
 </div>
 </div>
 </div>
-
 
 <!-- ===========================
 REEL VIDEO EDITING
