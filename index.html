@@ -222,6 +222,8 @@ z-index:3;
 }
 
 .small-text{
+position:relative;
+z-index:2;
 color:#cfcfcf;
 letter-spacing:4px;
 margin-bottom:18px;
@@ -229,6 +231,8 @@ font-size:.95rem;
 }
 
 .hero-left h1{
+position:relative;
+z-index:2;
 font-family:"Cormorant Garamond",serif;
 font-size:5.8rem;
 line-height:.95;
@@ -240,6 +244,8 @@ display:block;
 }
 
 .hero-role{
+position:relative;
+z-index:2;
 font-size:1.18rem;
 letter-spacing:5px;
 text-transform:uppercase;
@@ -248,6 +254,8 @@ margin-bottom:30px;
 }
 
 .hero-left p{
+position:relative;
+z-index:2;
 max-width:560px;
 line-height:2;
 color:#c8c8c8;
@@ -255,6 +263,8 @@ margin-bottom:38px;
 }
 
 .hero-buttons{
+position:relative;
+z-index:2;
 display:flex;
 gap:18px;
 flex-wrap:wrap;
@@ -299,13 +309,15 @@ DOT PATTERN & ARROW
 
 .dot-grid{
 position:absolute;
-left:-20px;
-top:20px;
-width:190px;
-height:150px;
+left:-15px;
+top:130px;
+width:220px;
+height:160px;
 background-image:radial-gradient(#ffb84d 1.8px,transparent 1.8px);
 background-size:18px 18px;
-opacity:.55;
+opacity:.35;
+z-index:0;
+pointer-events:none;
 }
 
 .hero-arrow{
