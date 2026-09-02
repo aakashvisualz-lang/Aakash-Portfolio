@@ -968,20 +968,24 @@ position:relative;
 margin-bottom:140px;
 }
 
+
 .reel-showcase{
 position:relative;
-display:flex;
+display:grid;
+grid-template-columns:repeat(6,170px);
+grid-template-rows:40px 320px 40px 320px;
 justify-content:center;
-align-items:flex-end;
-gap:28px;
-flex-wrap:wrap;
-padding:40px 0;
+column-gap:26px;
+row-gap:0;
+padding:40px 0 70px;
+max-width:1250px;
+margin:auto;
 }
-
+.reel-svg{display:none;}
 .reel-phone{
 position:relative;
 width:170px;
-height:360px;
+height:320px;
 border-radius:36px;
 padding:8px;
 background:linear-gradient(160deg,#1b1b1b,#040404);
@@ -991,83 +995,20 @@ overflow:hidden;
 transition:.45s;
 cursor:pointer;
 }
+.reel-phone:nth-of-type(1){grid-column:1;grid-row:1/span 2;}
+.reel-phone:nth-of-type(2){grid-column:2;grid-row:2/span 2;}
+.reel-phone:nth-of-type(3){grid-column:3;grid-row:1/span 2;}
+.reel-phone:nth-of-type(4){grid-column:4;grid-row:2/span 2;}
+.reel-phone:nth-of-type(5){grid-column:5;grid-row:1/span 2;}
+.reel-phone:nth-of-type(6){grid-column:6;grid-row:2/span 2;}
+.reel-phone:nth-of-type(7){grid-column:3;grid-row:3/span 2;}
+.reel-phone:nth-of-type(8){grid-column:4;grid-row:4/span 2;}
+.reel-phone:hover{transform:translateY(-8px) scale(1.03);}
+.reel-phone::before{content:"";position:absolute;top:8px;left:50%;transform:translateX(-50%);width:72px;height:16px;background:#000;border-radius:20px;z-index:5;}
+.reel-phone::after{content:"";position:absolute;top:13px;left:50%;transform:translateX(-50%);width:14px;height:14px;background:#111;border-radius:50%;box-shadow:22px 0 #111;z-index:6;}
+.reel-phone iframe{width:100%;height:100%;border:none;border-radius:28px;pointer-events:none;background:#0a0a0a;}
+.reel-number{position:absolute;bottom:16px;left:0;right:0;text-align:center;font-weight:700;letter-spacing:2px;font-size:.8rem;background:linear-gradient(transparent,rgba(0,0,0,.9));padding-top:28px;z-index:5;}
 
-.reel-phone:nth-child(2),
-.reel-phone:nth-child(5),
-.reel-phone:nth-child(8){
-transform:translateY(-35px);
-}
-
-.reel-phone:hover{
-transform:translateY(-18px) scale(1.05);
-box-shadow:0 40px 90px rgba(0,0,0,.65),0 0 35px rgba(255,184,77,.25);
-}
-
-.reel-phone::before{
-content:"";
-position:absolute;
-top:8px;
-left:50%;
-transform:translateX(-50%);
-width:72px;
-height:16px;
-background:#000;
-border-radius:20px;
-z-index:5;
-}
-
-.reel-phone::after{
-content:"";
-position:absolute;
-top:13px;
-left:50%;
-transform:translateX(-50%);
-width:14px;
-height:14px;
-background:#111;
-border-radius:50%;
-box-shadow:22px 0 #111;
-z-index:6;
-}
-
-.reel-phone iframe{
-width:100%;
-height:100%;
-border:none;
-border-radius:28px;
-pointer-events:none;
-background:#0a0a0a;
-}
-
-.reel-number{
-position:absolute;
-bottom:16px;
-left:0;
-right:0;
-text-align:center;
-font-weight:700;
-letter-spacing:2px;
-font-size:.8rem;
-background:linear-gradient(transparent,rgba(0,0,0,.9));
-padding-top:28px;
-z-index:5;
-pointer-events:none;
-}
-
-.reel-svg{
-position:absolute;
-inset:0;
-pointer-events:none;
-z-index:-1;
-}
-
-.reel-svg path{
-stroke:#ffffff;
-stroke-width:3;
-stroke-dasharray:10 10;
-fill:none;
-opacity:.75;
-}
 
 .photo-card{
 position:relative;
@@ -1395,15 +1336,9 @@ height:350px;
 .phone:nth-child(2){
 transform:none;
 }
-.reel-phone{
-width:145px;
-height:300px;
-}
-.reel-phone:nth-child(2),
-.reel-phone:nth-child(5),
-.reel-phone:nth-child(8){
-transform:none;
-}
+.reel-showcase{grid-template-columns:repeat(2,145px);grid-template-rows:none;column-gap:18px;row-gap:18px;}
+.reel-phone{width:145px;height:300px;}
+.reel-phone:nth-of-type(n){grid-column:auto;grid-row:auto;}
 .modal-content{
 width:100%;
 }
@@ -1468,7 +1403,7 @@ I craft high-impact visual content for brands, businesses and digital platforms 
 </section>
 
 <section id="about">
-<h2 class="section-title">VIDEO EDITOR • MOTION DESIGNER • AI VIDEO CREATOR</h2>
+<h2 class="section-title" style="font-size:2.8rem;">VIDEO EDITOR • MOTION DESIGNER • AI VIDEO CREATOR</h2>
 <div class="about-grid">
 <div class="glass-card">
 <h3>ABOUT ME</h3>
@@ -1515,7 +1450,6 @@ I’m a visual creative specializing in video editing, motion design and AI-powe
 <section id="portfolio" class="portfolio">
 <div class="portfolio-head">
 <h2>PORTFOLIO</h2>
-<p>SELECTED WORK</p>
 </div>
 
 <div class="portfolio-wrap">
@@ -1576,6 +1510,17 @@ PROMO VIDEOS
 MOTION GRAPHICS
 =========================== -->
 <div class="category">
+<h2 class="category-title">MOTION GRAPHICS</h2>
+<div class="category-sub">PREMIUM MOTION GRAPHICS SHOWCASE</div>
+<div class="landscape-grid">
+<div class="land-card video-card" data-video="https://drive.google.com/file/d/1mxmE5_Eq3z_nhk4pN1Wp9XDU1hKk-dvi/preview"><div class="click-overlay"></div><iframe src="https://drive.google.com/file/d/1mxmE5_Eq3z_nhk4pN1Wp9XDU1hKk-dvi/preview" allow="autoplay; encrypted-media; fullscreen"></iframe><div class="land-overlay"><h4>Motion Graphics 01</h4><span>Creative Motion</span></div></div>
+<div class="land-card video-card" data-video="https://drive.google.com/file/d/1z83NWqjB-X_mEAyA8x9Jg00qAO2xYkBe/preview"><div class="click-overlay"></div><iframe src="https://drive.google.com/file/d/1z83NWqjB-X_mEAyA8x9Jg00qAO2xYkBe/preview" allow="autoplay; encrypted-media; fullscreen"></iframe><div class="land-overlay"><h4>Motion Graphics 02</h4><span>Creative Motion</span></div></div>
+</div></div>
+
+<!-- ===========================
+MOTION GRAPHICS
+=========================== -->
+<div class="category">
 <div class="glow-circle glow-right"></div>
 <div class="floating-arrow arrow-right">
 <svg viewBox="0 0 120 120">
@@ -1583,7 +1528,7 @@ MOTION GRAPHICS
 <path d="M50 20 L110 60 L50 100"/>
 </svg>
 </div>
-<h2 class="category-title">MOTION GRAPHICS</h2>
+<h2 class="category-title">MOTION GRAPHICS REELS</h2>
 <div class="category-sub">PREMIUM ANIMATION • SOCIAL ADS • DIGITAL MOTION</div>
 <div class="connector">
 <svg viewBox="0 0 1000 180">
@@ -1702,10 +1647,6 @@ REEL VIDEO EDITING
 <div class="reel-number">REEL 08</div>
 </div>
 
-<div class="reel-phone video-card" data-video="https://drive.google.com/file/d/1xsAsuVsTDtKnzmJLLNLeH8LgqkRW-LCJ/preview">
-<div class="click-overlay"></div>
-<iframe src="https://drive.google.com/file/d/1xsAsuVsTDtKnzmJLLNLeH8LgqkRW-LCJ/preview" allow="autoplay; encrypted-media; fullscreen"></iframe>
-<div class="reel-number">REEL 09</div>
 </div>
 </div>
 </div>
@@ -1771,25 +1712,6 @@ POSTERS
 </div>
 
 <!-- ===========================
-PHOTO SLIDESHOW
-=========================== -->
-<div class="category">
-<h2 class="category-title">PHOTO SLIDESHOW EDIT</h2>
-<div class="category-sub">CINEMATIC PHOTO STORY PRESENTATION</div>
-<div class="photo-card video-card" data-video="https://drive.google.com/file/d/1NiLwmQKDB8H9EQPHy3C-o8gRVmW5rAjC/preview">
-<div class="click-overlay"></div>
-<iframe src="https://drive.google.com/file/d/1NiLwmQKDB8H9EQPHy3C-o8gRVmW5rAjC/preview" allow="autoplay; encrypted-media; fullscreen"></iframe>
-<div class="photo-overlay">
-<h3>Premium Photo Slideshow</h3>
-<span>Cinematic Presentation</span>
-</div>
-</div>
-</div>
-
-</div>
-</section>
-
-<!-- ===========================
 FULLSCREEN VIDEO MODAL (PLAYS WITH SOUND)
 =========================== -->
 <div class="video-modal" id="videoModal">
@@ -1829,6 +1751,10 @@ Follow my latest edits, AI cinematic videos, motion graphics and creative projec
 </p>
 <a class="social-btn" href="https://www.instagram.com/awesome._.dreamer_._?igsi=eGkyZnVpY3RvejNj" target="_blank">
 📸 Follow on Instagram
+</a>
+</p>
+<a class="social-btn" href="https://www.linkedin.com/in/aakash-k-b1183026b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank">
+📸 Linkedin
 </a>
 </div>
 </div>
